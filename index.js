@@ -214,7 +214,7 @@ exports.encrypt = function(publicKeyTo, msg, opts) {
     {
       ephemPrivateKey = opts.ephemPrivateKey || crypto.randomBytes(32);
     }
-    ephemPublicKey = getPublic(ephemPrivateKey);
+    ephemPublicKey = getPublicCompressed(ephemPrivateKey);
     resolve(derive(ephemPrivateKey, publicKeyTo));
   }).then(function(Px) {
     var hash = sha512(Px);
